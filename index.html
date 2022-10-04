@@ -55,11 +55,23 @@
 		<!-------- Code container section ------->
 		<div class="code-container">
 			<div class="code-editor">
-				<div class="html-code">
-					<textarea id="htmlCodeEditor" placeholder="HTML Code" oninput="onLiveCode()"></textarea>
+				<div class="html-code" onload="onLiveCode()">
+					<!-- <textarea id="htmlCodeEditor" placeholder="HTML Code" oninput="onLiveCode()"></textarea> -->
+					<div class="html-tags" id="htmlCodeEditor">
+						<div>
+							<span>&#60;</span>div<span>&#62;</span>
+							
+							Padding
+							
+							<span>&#60;</span>/div<span>&#62;</span>
+						</div>
+					</div>
 				</div>
 				<div class="css-code">
-					<textarea id="cssCodeEditor" placeholder="Css Code" oninput="onLiveCode()"></textarea>
+					<!-- <textarea id="cssCodeEditor" placeholder="Css Code" oninput="onLiveCode()"></textarea> -->
+					div&#123;<br/>
+
+					<br/>&#125;
 				</div>
 				<!-- <div class="cssCode">
 					<textarea id="jsCodeEditor" placeholder="JS Code" oninput="onLiveCode()"></textarea>
@@ -67,7 +79,10 @@
 			</div>
 			
 			<div class="show-code-output">
-				<iframe id="codeOutPut"></iframe>
+				<!-- <iframe id="codeOutPut"></iframe> -->
+				<div id="padding">
+					Padding
+				</div>
 			</div>
 			
 		</div>
@@ -77,6 +92,7 @@
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="js/css.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
