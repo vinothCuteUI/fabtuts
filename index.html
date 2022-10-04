@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fabtuts</title>
+	<script src="https://kit.fontawesome.com/1019926d45.js" crossorigin="anonymous"></script>
+	<!-- Fonts ---->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+	<!-- Page style --->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<!------- Top Header --------->
+	<header class="top-header">
+		<div class="top-info">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-2 logo">
+						<a href="index.html"><img src="images/fabevy-logo-landscape.png" alt=""></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="top-navebar">
+			<div class="container-fluid">
+				<ul class="navbar-menu">
+					<li><a href="#" >Html5</a></li>
+					<li><a href="#" class="active">CSS3</a></li>
+					<li><a href="#">JavaScript</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<!------- Top Header Ends --------->
+
+	<!------- main section --------->
+	<section class="main">
+		<!-- Side bar section -->
+		<div class="side-bar-section">
+			<h2>CSS3</h2>
+			<ul class="side-nav">
+				<li><a href="#" class="active">Padding</a></li>
+				<li><a href="#">Border</a></li>
+				<li><a href="#">Margin</a></li>
+			</ul>
+		</div>
+		<!-- Side bar section end -->
+
+		<!-------- Code container section ------->
+		<div class="code-container">
+			<div class="code-editor">
+				<div class="html-code">
+					<textarea id="htmlCodeEditor" placeholder="HTML Code" oninput="onLiveCode()"></textarea>
+				</div>
+				<div class="css-code">
+					<textarea id="cssCodeEditor" placeholder="Css Code" oninput="onLiveCode()"></textarea>
+				</div>
+				<!-- <div class="cssCode">
+					<textarea id="jsCodeEditor" placeholder="JS Code" oninput="onLiveCode()"></textarea>
+				</div> -->
+			</div>
+			
+			<div class="show-code-output">
+				<iframe id="codeOutPut"></iframe>
+			</div>
+			
+		</div>
+		<!------- Code container section End -------->
+	</section>
+	<!------- main section Ends--------->
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
