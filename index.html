@@ -45,9 +45,9 @@
 		<div class="side-bar-section">
 			<h2>CSS3</h2>
 			<ul class="side-nav">
-				<li><a href="#" class="active">Padding</a></li>
-				<li><a href="#">Border</a></li>
-				<li><a href="#">Margin</a></li>
+				<li><a class="csslist nav-active" href="#padding">Padding</a></li>
+				<li><a class="csslist" href="#border">Border</a></li>
+				<li><a class="csslist" href="#margin">Margin</a></li>
 			</ul>
 		</div>
 		<!-- Side bar section end -->
@@ -58,31 +58,42 @@
 				<div class="html-code" onload="onLiveCode()">
 					<!-- <textarea id="htmlCodeEditor" placeholder="HTML Code" oninput="onLiveCode()"></textarea> -->
 					<div class="html-tags" id="htmlCodeEditor">
-						<div>
+						<div class="elements-list">
 							<span>&#60;</span>div<span>&#62;</span>
-							
-							Padding
-							
+							<span id="htmlview"></span>
 							<span>&#60;</span>/div<span>&#62;</span>
 						</div>
 					</div>
 				</div>
 				<div class="css-code">
 					<!-- <textarea id="cssCodeEditor" placeholder="Css Code" oninput="onLiveCode()"></textarea> -->
-					div&#123;<br/>
-
-					<br/>&#125;
+					<div class="css-properties">
+						<ul id="css-property-seclection">
+							<li class="css-dropdown">
+								<span id="css-option-tag"></span> Properties <i class="fa fa-angle-down" aria-hidden="true"></i>
+								<ul class="css-dropdown-nav" id="css-dropdown-nav">
+									
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<p>div &#123;</p>
+					<div id="cssProperties">
+						
+					</div>
+					<p>&#125;</p>
 				</div>
 				<!-- <div class="cssCode">
 					<textarea id="jsCodeEditor" placeholder="JS Code" oninput="onLiveCode()"></textarea>
 				</div> -->
 			</div>
 			
-			<div class="show-code-output">
+			<div class="show-code-output" id="outputtag">
 				<!-- <iframe id="codeOutPut"></iframe> -->
-				<div id="padding">
-					Padding
+				<div id="padding-demo" class="demo-tags active-demo">
 				</div>
+				<div id="border-demo" class="demo-tags"></div>
+				<div id="margin-demo" class="demo-tags"></div>
 			</div>
 			
 		</div>
