@@ -15,7 +15,7 @@ let cssData = [
 				"border": "5px solid red",
 				"border-width": "5px",
 				"border-style":"solid",
-				"border-color":"red",
+				"border-color":"green",
 				"border-top-style": "dotted",
 				"border-right-style": "solid",
 				"border-bottom-style": "dotted",

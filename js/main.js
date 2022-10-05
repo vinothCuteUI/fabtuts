@@ -8,9 +8,9 @@
 // 	_showOutput.close();
 // } 
 
-let _props, _cssList, _divElm, _optContent, _cssProperties, 
+let _props = "padding", _cssList, _divElm, _optContent, _cssProperties, 
 _propertyOption, _outPutTag, _htmlView, _outPtElm, _cssProp, isClick, 
-_dropDownCss, _cssOptions, _cssPropList, getActiveOpt;
+_dropDownCss, _cssOptions, _cssPropList, getActiveOpt, _newCssKeyVal;
 
 let newArrObj = [];
 
@@ -43,7 +43,7 @@ for(let i = 0; i < _cssList.length; i++){
 				newArrObj.push(obj[_props][0]);
 				toCss(_props, { [_props]:obj[_props][0][_props]});
 			});
-			
+
 		 }
 		 isClick = _indx;
 	})
@@ -106,7 +106,7 @@ let toCss = function(elm, cssPr){
 		}
 		_cssOptions = document.getElementsByClassName("css-options");
 		for(let i = 0; i < _cssOptions.length; i++){
-			_cssOptions[i].addEventListener("click", onCssOption);
+			_cssOptions[i].addEventListener("click", onCssOption, false);
 
 		}
 	});
@@ -121,11 +121,12 @@ let toCss = function(elm, cssPr){
 let onCssLoad = (csp)=>{
 	cssData.forEach(function(obj, indx) {
 		_outPtElm = document.getElementById("padding-demo"); 
-		toCss("padding",{padding: "20px 20px 20px 20px"});
+		// toCss("padding",{padding: "20px 20px 20px 20px"});
+		toCss(_props, { [_props]:obj[_props][0][_props]});
 		newArrObj.shift();
-		newArrObj.push(obj["padding"]);
+		newArrObj.push(obj[_props][0]);
 		newArrObj.forEach(function(objs, c){
-			for(let i in objs[0]){
+			for(let i in objs){
 				_cssPropList = document.createElement("li");
 				_cssPropList.setAttribute("class", "css-options")
 				_cssPropList.setAttribute("data-id", i);
@@ -146,16 +147,16 @@ let onCssLoad = (csp)=>{
 
 //Change option of css
 let onCssOption = function(e){
-	
 	let _getCss = e.target.dataset.id;
 	e.target.classList.toggle("active-option");
-	newArrObj.forEach( function(cssOp, indVal) {
-		for(let i in cssOp[0]){
+	newArrObj.forEach(function(cssOp, indVal) {
+		for(let i in cssOp){
+			console.log(i);
 			if(_getCss == i){
-				let _newCssKeyVal = document.createElement("p");
-				_newCssKeyVal.innerText = i+": " +cssOp[0][i]+";";
+				_newCssKeyVal = document.createElement("p");
+				_newCssKeyVal.innerText = i+": " +cssOp[i]+";";
 				_cssProperties.appendChild(_newCssKeyVal);
-				_outPtElm.style[i] = cssOp[0][i];
+				_outPtElm.style[i] = cssOp[i];
 			}
 		}
 	});
