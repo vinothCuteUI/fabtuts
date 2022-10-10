@@ -1,0 +1,12 @@
+#padding-demo{
+	background-color: #00bcd4;
+	color: #fff;
+}
+#border-demo{
+	padding: 10px;
+}
+#margin-demo{
+	background-color: #00bcd4;
+	color: #fff;
+	padding: 10px;
+}
