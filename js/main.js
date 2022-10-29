@@ -11,8 +11,10 @@
 let _props = "padding", _cssList, _divElm, _optContent, _cssProperties, 
 _propertyOption, _outPutTag, _htmlView, _outPtElm, _cssProp, isClick, 
 _dropDownCss, _cssOptions, _cssPropList, getActiveOpt, _newCssKeyVal, 
-_cssKey, _cssVal, _cssValInpt, _getPorsVal, _inptBox, _addShorthand;
+_cssKey, _cssVal, _cssValInpt, _getPropsVal, _inptBox, _addShorthand, 
+_getProps, _getId, _editElm;
 
+//load selected css object array 
 let newArrObj = [];
 
 _cssList = document.getElementsByClassName("csslist");
@@ -27,7 +29,25 @@ _propertyOption = document.getElementById("css-dropdown-nav");
 _cssProperties = document.getElementById("cssProperties"); 
 
 
+//Load dynamic side menu
+var _sideNav = document.getElementsByClassName("side-nav")[0]; 
+for(let i in cssData[0]){
+	var _navli = document.createElement("li");
+	var _navA = document.createElement("a");
 
+	_navA.setAttribute("class", "csslist");
+	_navA.setAttribute("href", "#"+i);
+	_navA.innerText = i;
+	
+
+	_navli.appendChild(_navA);
+	_sideNav.appendChild(_navli);
+	document.getElementsByClassName("csslist")[0].classList.add("nav-active");
+
+
+}
+
+//Select css nav to edit
 for(let i = 0; i < _cssList.length; i++){
 
 	_cssList[i].addEventListener("click", (e)=>{
@@ -44,7 +64,7 @@ for(let i = 0; i < _cssList.length; i++){
 		 	cssData.forEach(function(obj, indx) {
 				newArrObj.shift();
 				newArrObj.push(obj[_props]);
-				toCss(_props, { [_props]:obj[_props][0][_props]});
+				toCss(_props, {[_props]:obj[_props][0][_props]});
 			});
 
 		 }
@@ -73,6 +93,7 @@ let toCss = function(elm, cssPr){
 	
 	document.getElementsByClassName("active-demo")[0].classList.remove("active-demo");
     document.getElementById(elm+"-demo").classList.add("active-demo");
+
 	//clear creates child elements
 	_propertyOption.innerHTML = "";
 	// _outPutTag.innerHTML = "";
@@ -96,7 +117,7 @@ let toCss = function(elm, cssPr){
 		}
 	});
 	
-
+	//pre load css
 	for(let c in cssPr){
 		_newCssKeyVal = document.createElement("div");
 		_cssKey = document.createElement("div");
@@ -111,19 +132,19 @@ let toCss = function(elm, cssPr){
 
 		_cssKey.innerText = c+" :";
 
-		_getPorsVal = cssPr[c].split(" ");
+		_getPropsVal = cssPr[c].split(" ");
 		
 	
-		for(let i = 0; i < _getPorsVal.length; i++){
+		for(let i = 0; i < _getPropsVal.length; i++){
 			_cssValInpt = document.createElement("input");
 			_cssValInpt.setAttribute("type", "text");
-			_cssValInpt.setAttribute("class", "css-inpt");
+			_cssValInpt.setAttribute("class", "css-inpt"+" "+ c+"-"+_addShorthand[i]);
+			// _cssValInpt.setAttribute("class", c+"-"+_addShorthand[i]);
 			
 			_cssValInpt.setAttribute("data-type", c+"-"+_addShorthand[i]);
 			
 			
-			
-			_cssValInpt.value = _getPorsVal[i];
+			_cssValInpt.value = _getPropsVal[i];
 			_cssVal.appendChild(_cssValInpt);
 
 		}
@@ -141,15 +162,21 @@ let toCss = function(elm, cssPr){
 
 	}
 
+	//load css properties
 	newArrObj.forEach( function(obj, indx) {
+
 		for(let i in obj[0]){
+			
 			_cssPropList = document.createElement("li");
-			_cssPropList.setAttribute("class", "css-options")
+			_cssPropList.setAttribute("class", "css-options");
 			_cssPropList.setAttribute("data-id", i);
+			_cssPropList.setAttribute("data-checked", false);
 			_cssPropList.innerText = i;
 			_propertyOption.appendChild(_cssPropList);
 			_getActiveOpt = document.getElementsByClassName("css-options")[0];
 			_getActiveOpt.classList.add("active-option");
+			_getActiveOpt.setAttribute("data-checked", true);
+
 		}
 		_cssOptions = document.getElementsByClassName("css-options");
 		for(let i = 0; i < _cssOptions.length; i++){
@@ -162,7 +189,7 @@ let toCss = function(elm, cssPr){
 }
 
 
-//Initial load function
+//Initial load 
 let onCssLoad = (csp)=>{
 	cssData.forEach(function(obj, indx) {
 		_outPtElm = document.getElementById("padding-demo"); 
@@ -174,76 +201,158 @@ let onCssLoad = (csp)=>{
 
 }
 
-//Change option of css
+//Select css option properties
 let onCssOption = function(e){
 	let _getCss = e.target.dataset.id;
+	if(e.target.dataset.checked == "true"){
+		e.target.dataset.checked = false;
+	}else{
+		e.target.dataset.checked = true;
+	}
+	let _isChecked = e.target.dataset.checked;
 	e.target.classList.toggle("active-option");
-	newArrObj.forEach(function(cssOp, indVal) {
-		for(let i in cssOp[0]){
-			
-			if(_getCss == i){
-				_newCssKeyVal = document.createElement("div");
-				_cssKey = document.createElement("div");
-				_cssVal = document.createElement("div");
+	
+	if(_isChecked == "true"){
+		newArrObj.forEach(function(cssOp, indVal) {
+			for(let i in cssOp[0]){
+				
+				if(_getCss == i){
+					_newCssKeyVal = document.createElement("div");
+					_cssKey = document.createElement("div");
+					_cssVal = document.createElement("div");
 
-				_newCssKeyVal.setAttribute("class", "props-list");
-				_newCssKeyVal.setAttribute("data-props", i);
+					_newCssKeyVal.setAttribute("class", "props-list");
+					_newCssKeyVal.setAttribute("data-props", i);
 
-				_cssKey.setAttribute("class", "csskey");
-				_cssVal.setAttribute("class", "cssval");
+					_cssKey.setAttribute("class", "csskey");
+					_cssVal.setAttribute("class", "cssval");
 
-				_cssKey.innerText = i+" :";
-				// _cssVal.innerText = cssOp[i]+";";
+					_cssKey.innerText = i+" :";
+					// _cssVal.innerText = cssOp[i]+";";
 
-				 _getPorsVal = cssOp[0][i].split(" ");
-		
-				for(let x = 0; x < _getPorsVal.length; x++){
-					_cssValInpt = document.createElement("input");
-					_cssValInpt.setAttribute("type", "text");
-					_cssValInpt.setAttribute("class", "css-inpt");
-					_cssValInpt.setAttribute("data-type", i);
+					 _getPropsVal = cssOp[0][i].split(" ");
+					if(_props == _getCss){
+						for(let x = 0; x < _getPropsVal.length; x++){
+							_cssValInpt = document.createElement("input");
+							_cssValInpt.setAttribute("type", "text");
+							_cssValInpt.setAttribute("class", "css-inpt"+" "+ i+"-"+_addShorthand[x]);
+							
+							
+							_cssValInpt.setAttribute("data-type", i+"-"+_addShorthand[x]);
+							
+							
+							_cssValInpt.value = _getPropsVal[x];
+							_cssVal.appendChild(_cssValInpt);
 
-					_cssValInpt.value = _getPorsVal[x];
-					_cssVal.appendChild(_cssValInpt);
 
+						}
+					}else{
+						for(let x = 0; x < _getPropsVal.length; x++){
+						
+							_cssValInpt = document.createElement("input");
+							_cssValInpt.setAttribute("type", "text");
+							_cssValInpt.setAttribute("class", "css-inpt", i);
+							// _cssValInpt.setAttribute("class", i);
+
+							_cssValInpt.setAttribute("data-type", i);
+
+							_cssValInpt.value = _getPropsVal[x];
+							_cssVal.appendChild(_cssValInpt);
+							
+							let _findCssVal = document.getElementsByClassName(i);
+							if(_findCssVal.length > 0){
+								document.getElementsByClassName(i)[0].setAttribute("disabled", true);
+							}
+
+						}
+					}
+
+
+					_newCssKeyVal.appendChild(_cssKey);
+					_newCssKeyVal.appendChild(_cssVal);
+
+					_cssProperties.appendChild(_newCssKeyVal);
+					_outPtElm.style[i] = cssOp[0][i];
 					
-				}
+					_inptBox = document.getElementsByClassName("css-inpt");
 
-				_newCssKeyVal.appendChild(_cssKey);
-				_newCssKeyVal.appendChild(_cssVal);
+					for(let n = 0; n < _inptBox.length; n++){
+						_inptBox[n].addEventListener("keyup", onEdit);
+					}
 
-				_cssProperties.appendChild(_newCssKeyVal);
-				_outPtElm.style[i] = cssOp[0][i];
-				_inptBox = document.getElementsByClassName("css-inpt");
-				for(let n = 0; n < _inptBox.length; n++){
-					_inptBox[n].addEventListener("keyup", onEdit);
+
 				}
+				
+				
+			}
+		});
+	}else{
+		let _cssProsElem = document.getElementsByClassName("props-list");
+		let _cssInpt = document.getElementsByClassName("css-inpt");
+		for(let i = 0; i < _cssProsElem.length; i++){
+			if(_cssProsElem[i].dataset.props == e.target.dataset.id){
+				
+				//Remove added css props
+				_cssProsElem[i].remove();
+				removeEdit(e.target.dataset.id);
+
+				//updated css
+				for(let j = 0; j < _cssInpt.length; j++){
+					
+					if(_cssInpt[j].dataset.type == e.target.dataset.id){
+						_getProps = _cssInpt[j].dataset.type;
+						 _getId = _getProps.split("-")[0];
+						 _editElm = document.getElementById(_getId+"-demo");
+						_editElm.style[_getProps] = _cssInpt[j].value;
+					}
+				}
+				//remove disable
+				let _rmCssVal = document.getElementsByClassName(e.target.dataset.id);
+				if(_rmCssVal.length != 0){
+					document.getElementsByClassName(e.target.dataset.id)[0].removeAttribute("disabled");
+				}
+				
+
 			}
 		}
-	});
+		
+		
+		
+		
+	}
 }
 
 
+
+//Edit css props function
 let onEdit = function(str){
-	console.log(str);
-	let _getProps = str.target.dataset.type;
-	let _getId =  _getProps.split("-")[0];
-	let _editElm = document.getElementById(_getId+"-demo");
+	console.log(str)
+	 _getProps = str.target.dataset.type;
+	 _getId = _getProps.split("-")[0];
+	 _editElm = document.getElementById(_getId+"-demo");
 	_editElm.style[_getProps] = str.target.value;
 }
 
+//remove css props function
+let removeEdit = function(str){
+	 _getId =  str.split("-")[0];
+	 _editElm = document.getElementById(_getId+"-demo");
+	_editElm.style.removeProperty(str);
+	// element.style.removeProperty("width");
 
-
-function clearChild(str) {
-	
-    var e = document.querySelector(str);
-    
-    // //e.firstElementChild can be used.
-    // var child = e.lastElementChild; 
-    // while (child) {
-    //     e.removeChild(child);
-    //     child = e.lastElementChild;
-    // }
 }
+
+
+// function clearChild(str) {
+	
+//     var e = document.querySelector(str);
+    
+//     // //e.firstElementChild can be used.
+//     // var child = e.lastElementChild; 
+//     // while (child) {
+//     //     e.removeChild(child);
+//     //     child = e.lastElementChild;
+//     // }
+// }
 
 window.load = onCssLoad();

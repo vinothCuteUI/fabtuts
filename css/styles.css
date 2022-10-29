@@ -132,6 +132,7 @@ ul, ol{
 	color: #222;
 	padding: 6px 15px;
 	transition: all 0.3s ease;
+	text-transform: capitalize;
 }
 .side-nav li > a:hover{
 	color: #fff;
