@@ -118,6 +118,7 @@ ul, ol{
 	overflow: hidden;
 	overflow-y: auto;
 	width: 180px;
+	flex: 0 0 auto;
 }
 .side-bar-section h2{
     font-size: 1.5em;
@@ -138,7 +139,7 @@ ul, ol{
 	color: #fff;
 	background-color: #670099;
 }
-.side-nav li > a.nav-active{
+.side-nav li > a.active{
 	color: #fff;
 	background-color: #670099;
 }
@@ -208,7 +209,7 @@ ul, ol{
     border-radius: 5px;
     padding: 5px;
 }
-.css-dropdown-nav.css-active-nav{
+.css-dropdown-nav.active{
 	display: block;
 }
 .css-dropdown-nav > li{
@@ -241,12 +242,12 @@ ul, ol{
 	background-color: #670099;
 	
 }
-.css-dropdown-nav > li.active-option{
+.css-dropdown-nav > li.active{
 	color: #fff;
 	background-color: #670099;
 
 }
-.css-dropdown-nav > li.active-option:after{
+.css-dropdown-nav > li.active:after{
 	opacity: 1;
 	visibility: visible;
 }
@@ -260,10 +261,10 @@ ul, ol{
 	padding-left: 8px;
 	flex-grow: 1;
 }
-.props-list .cssval input{
+.props-list .cssval input.css-inpt{
 	width: 90px;
     height: 30px;
-    border: solid 1px #000;
+    border: solid 1px #000 !important;
     margin-right: 15px;
     padding: 5px 8px;
 
@@ -281,6 +282,6 @@ ul, ol{
 .demo-tags{
 	display: none;
 }
-.active-demo{
+.demo-tags.active{
 	display: block;
 }

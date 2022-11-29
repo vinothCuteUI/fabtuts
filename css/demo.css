@@ -1,12 +1,30 @@
-#padding-demo{
+.code-mirror{
+
+}
+.code-mirror .fb-tag{
+	color: brown/*#170*/;
+	display: inline-block;
+	    line-height: 22px;
+}
+.code-mirror .fb-bracket{
+	color: mediumblue/*#997*/;
+	font-size: 22px;
+    transform: translateY(4px);
+    display: inline-block;
+}
+
+.padding-demo{
 	background-color: #00bcd4;
 	color: #fff;
 }
-#border-demo{
+.border-demo{
 	padding: 10px;
 }
-#margin-demo{
+.margin-demo{
 	background-color: #00bcd4;
 	color: #fff;
 	padding: 10px;
+}
+.background-demo{
+	height: 400px;
 }
