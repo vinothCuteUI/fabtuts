@@ -14,7 +14,7 @@ _dropDownCss, _cssOptions, _cssPropList, getActiveOpt, _newCssKeyVal,
 _cssKey, _cssVal, _cssValInpt, _getPropsVal, _inptBox, _addShorthand, 
 _getProps, _getId, _editElm;
 
-let _getEditCssObj = {}, _updateVal = [], 
+let _getEditCssObj = {}, _updateVal = [], _initObjProp, _initObjVal,
  _getUptStyle, updateStyle,
 _headTag = document.head || document.getElementsByTagName('head')[0],
 _style = document.createElement('style');
@@ -28,6 +28,10 @@ _dropDownCss = document.getElementsByClassName("css-dropdown");
 //get html elements
  _outPutTag = document.getElementById("outputtag");
  _htmlView = document.getElementById("htmlview");
+ _selector = document.getElementById("selector");
+ _cssInfo = document.getElementById("css-info");
+ _tryNow = document.getElementsByClassName("tryit");
+ _viewdetails = document.getElementById("viewdetails");
 
 //get css properties 
 _cssProp = document.getElementById("css-option-tag");
@@ -67,6 +71,16 @@ for(let i = 0; i < _cssList.length; i++){
 	})
 }
 
+//hide enable events
+document.addEventListener('click', function(e){   
+	// let isEventClick = document.getElementsByClassName('css-dropdown')[0];
+	if (!_dropDownCss[0].contains(e.target)){
+	     document.getElementById("css-dropdown-nav").classList.remove("active");
+	}
+
+});
+
+
 
 
 //On css option nave enable function
@@ -74,12 +88,13 @@ for(let i = 0; i < _dropDownCss.length; i++){
 	_dropDownCss[i].addEventListener("click", function(e){
 		e.preventDefault();
 		let _node = this.parentNode;
-		
 		let dropNave = _node.getElementsByClassName("css-dropdown-nav");
 		dropNave[0].classList.toggle("active");
 	})
+
 }
-let _initObjProp, _initObjVal;
+
+
 
 
 //Initial load 
@@ -91,63 +106,56 @@ let onCssLoad = ()=>{
 		newArrObj.push(obj[_props]);
 		
 	});
-	document.querySelectorAll(".demo-tags.active")[0].classList.remove("active");
-    document.getElementById(_props+"-demo").classList.add("active");
+	// document.querySelectorAll(".demo-tags.active")[0].classList.remove("active");
+ //    document.getElementById(_props+"-demo").classList.add("active");
+
     _demoElmId = document.getElementById(_props+"-demo");
 	//clear creates child elements
 	_propertyOption.innerHTML = "";
 	_cssProperties.innerHTML = "";
 	_htmlView.innerHTML = "";
+	_outPutTag.innerHTML = "";
+	_selector.innerText = "";
 
 	//load dynamic content
 	_cssProp.innerText = _props;
 
+	//load css details
+	_cssInfo.innerHTML = "";
 
+	for(let m in cssContents[0]){
+		if(m == _props){
+			_cssInfo.innerHTML = cssContents[0][m];
+		}
+	}
 	//load css properties
 	newArrObj.forEach( function(obj, indx) {
-		
+		_outPutTag.innerHTML = obj[1]["htmlDOM"];
 		_htmlView.innerHTML = obj[1]["htmlView"];
+		_selector.innerText = document.getElementsByClassName("fb-tag")[1].innerText;
+
+		//show main and code toggle
+		for(let x = 0; x < _tryNow.length; x++){
+			_tryNow[x].addEventListener("click", (e)=>{
+				e.preventDefault();
+				document.getElementById("code-container").classList.add("show-code");
+				document.getElementById("main").classList.remove("show-main");
+			})
+		}
+		
+		_viewdetails.addEventListener("click", (e)=>{
+			e.preventDefault();
+			document.getElementById("code-container").classList.remove("show-code");
+			document.getElementById("main").classList.add("show-main");
+		})
+
 		_initObjProp = Object.keys(obj[0])[0];
 		_initObjVal = Object.values(obj[0])[0];
 		
-		// console.log(getObj)
-		cssPr = {[Object.keys(obj[0])[0]]:Object.values(obj[0])[0]};
+		addCssProps(Object.keys(obj[0])[0]);
 		_getEditCssObj[_initObjProp] = _initObjVal;
-
-		for(let c in cssPr){
-			_newCssKeyVal = document.createElement("div");
-			_cssKey = document.createElement("div");
-			_cssVal = document.createElement("div");
-			_newCssKeyVal.setAttribute("class", "props-list");
-			_newCssKeyVal.setAttribute("data-props", c);
-			_cssKey.setAttribute("class", "csskey");
-			_cssVal.setAttribute("class", "cssval");
-			_cssKey.innerText = c+" :";
-
-			//Create inputs 
-			_getPropsVal = cssPr[c].split(" ");
-			for(let i = 0; i < _getPropsVal.length; i++){
-				_cssValInpt = document.createElement("input");
-				_cssValInpt.setAttribute("type", "text");
-				_cssValInpt.setAttribute("class", "css-inpt"+" "+ c);
-				_cssValInpt.setAttribute("data-type", c);
-				_cssValInpt.value = _getPropsVal[i];
-				_cssVal.appendChild(_cssValInpt);
-
-			}
-			
-			// _cssVal.innerText = cssPr[c]+";";
-			_newCssKeyVal.appendChild(_cssKey);
-			_newCssKeyVal.appendChild(_cssVal);
-			_cssProperties.appendChild(_newCssKeyVal);
-
-
-			_inptBox = document.getElementsByClassName("css-inpt");
-			for(let n = 0; n < _inptBox.length; n++){
-				_inptBox[n].addEventListener("keyup", onEdit);
-			}
-
-		}
+		
+		
 		for(let i in obj[0]){
 			
 			_cssPropList = document.createElement("li");
@@ -168,11 +176,13 @@ let onCssLoad = ()=>{
 
 		}
 	});
-
+	;
 	//update css
 	onUpdateCss();
 
 }
+
+
 
 //Select css option properties
 let onCssOption = function(e){
@@ -187,61 +197,7 @@ let onCssOption = function(e){
 	e.target.classList.toggle("active");
 	
 	if(_isChecked == "true"){
-		newArrObj.forEach(function(cssOp, indVal) {
-			for(let i in cssOp[0]){
-				
-				if(_getCss == i){
-
-					//Add css props obj
-					_getEditCssObj[i] = cssOp[0][i];
-					
-					_newCssKeyVal = document.createElement("div");
-					_cssKey = document.createElement("div");
-					_cssVal = document.createElement("div");
-
-					_newCssKeyVal.setAttribute("class", "props-list");
-					_newCssKeyVal.setAttribute("data-props", i);
-
-					_cssKey.setAttribute("class", "csskey");
-					_cssVal.setAttribute("class", "cssval");
-
-					_cssKey.innerText = i+" :";
-					// _cssVal.innerText = cssOp[i]+";";
-
-					 _getPropsVal = cssOp[0][i].split(" ");
-					
-					for(let x = 0; x < _getPropsVal.length; x++){
-					
-						_cssValInpt = document.createElement("input");
-						_cssValInpt.setAttribute("type", "text");
-						_cssValInpt.setAttribute("class", "css-inpt"+" "+ i);
-						// _cssValInpt.setAttribute("class", i);
-
-						_cssValInpt.setAttribute("data-type", i);
-
-						_cssValInpt.value = _getPropsVal[x];
-						_cssVal.appendChild(_cssValInpt);
-						
-					}
-					
-					_newCssKeyVal.appendChild(_cssKey);
-					_newCssKeyVal.appendChild(_cssVal);
-
-					_cssProperties.appendChild(_newCssKeyVal);
-					//update css
-					onUpdateCss();
-					_inptBox = document.getElementsByClassName("css-inpt");
-
-					for(let n = 0; n < _inptBox.length; n++){
-						_inptBox[n].addEventListener("keyup", onEdit);
-					}
-
-
-				}
-				
-				
-			}
-		});
+		addCssProps(_getCss);
 	}else{
 
 		//Delete css props obj
@@ -262,6 +218,63 @@ let onCssOption = function(e){
 	}
 }
 
+function addCssProps(getCss){
+	newArrObj.forEach(function(cssOp, indVal) {
+		for(let i in cssOp[0]){
+			
+			if(getCss == i){
+
+				//Add css props obj
+				_getEditCssObj[i] = cssOp[0][i];
+				
+				_newCssKeyVal = document.createElement("div");
+				_cssKey = document.createElement("div");
+				_cssVal = document.createElement("div");
+
+				_newCssKeyVal.setAttribute("class", "props-list");
+				_newCssKeyVal.setAttribute("data-props", i);
+
+				_cssKey.setAttribute("class", "csskey");
+				_cssVal.setAttribute("class", "cssval");
+
+				_cssKey.innerText = i+" :";
+				// _cssVal.innerText = cssOp[i]+";";
+
+				 _getPropsVal = cssOp[0][i].split(" ");
+				
+				for(let x = 0; x < _getPropsVal.length; x++){
+				
+					_cssValInpt = document.createElement("input");
+					_cssValInpt.setAttribute("type", "text");
+					_cssValInpt.setAttribute("class", "css-inpt"+" "+ i);
+					// _cssValInpt.setAttribute("class", i);
+
+					_cssValInpt.setAttribute("data-type", i);
+
+					_cssValInpt.value = _getPropsVal[x];
+					_cssVal.appendChild(_cssValInpt);
+					
+				}
+				
+				_newCssKeyVal.appendChild(_cssKey);
+				_newCssKeyVal.appendChild(_cssVal);
+
+				_cssProperties.appendChild(_newCssKeyVal);
+				//update css
+				onUpdateCss();
+				_inptBox = document.getElementsByClassName("css-inpt");
+
+				for(let n = 0; n < _inptBox.length; n++){
+					_inptBox[n].addEventListener("keyup", onEdit);
+				}
+
+
+			}
+			
+			
+		}
+	});
+}
 
 //Edit css props function
 let onEdit = function(str){

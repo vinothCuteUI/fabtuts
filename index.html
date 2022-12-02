@@ -55,10 +55,23 @@
 		<!-- Side bar section end -->
 
 		<!-------- Code container section ------->
-		<div class="code-container">
+		<div id="main" class="show-main">
+			<div id="css-info">
+				
+			</div>
+		</div>
+		
+		
+		<div class="code-container" id="code-container">
+			<!-- Css properties info --->
+			
+
+			<!-- Css code editor --->
 			<div class="code-editor">
+
 				<div class="html-code">
 					<!-- <textarea id="htmlCodeEditor" placeholder="HTML Code" oninput="onLiveCode()"></textarea> -->
+					<a href="#" class="btns viewdetails" id="viewdetails">View Details</a>
 					<div class="html-tags" id="htmlCodeEditor">
 						<div class="elements-list" id="htmlview">
 							
@@ -69,7 +82,7 @@
 					<!-- <textarea id="cssCodeEditor" placeholder="Css Code" oninput="onLiveCode()"></textarea> -->
 					<div class="css-properties">
 						<ul id="css-property-seclection">
-							<li class="css-dropdown">
+							<li class="css-dropdown" >
 								<span id="css-option-tag"></span> Properties <i class="fa fa-angle-down" aria-hidden="true"></i>
 								<ul class="css-dropdown-nav" id="css-dropdown-nav">
 									
@@ -77,7 +90,7 @@
 							</li>
 						</ul>
 					</div>
-					<p>div &#123;</p>
+					<p><span id="selector"></span> &#123;</p>
 					<div id="cssProperties">
 						
 					</div>
@@ -90,24 +103,7 @@
 			
 			<div class="show-code-output" id="outputtag">
 				<!-- <iframe id="codeOutPut"></iframe> -->
-				<div id="padding-demo" class="demo-tags padding-demo active">
-					Padding
-				</div>
-				<div id="border-demo" class="demo-tags border-demo">
-					Border
-				</div>
-				<div id="margin-demo" class="demo-tags margin-demo">
-					Margin
-				</div>
-				<ul id="list-style-demo" class="demo-tags list-style-demo">
-					<li>Apple</li>
-					<li>Orange</li>
-					<li>Lemon</li>
-				</ul>
-				<div id="background-demo" class="demo-tags background-demo"></div>
-				<p id="text-alignment-demo" class="demo-tags text-alignment-demo">Sed sit amet nunc sit amet nulla auctor congue a ac odio. Suspendisse potenti. Aenean sollicitudin nisl tincidunt, iaculis urna sed, dignissim dui. Sed id hendrerit neque. Mauris at sodales velit. Pellentesque porta et justo vel vehicula. Vivamus viverra libero mollis lobortis tempor. Nullam pulvinar at justo quis imperdiet. Aliquam sed aliquet tortor. Sed convallis ex posuere ligula ullamcorper, sit amet malesuada lacus lacinia. Proin viverra viverra sapien, a interdum lacus bibendum eget.</p>
-				<h3 id="text-decoration-demo" class="demo-tags text-decoration-demo">Css Text Decoration</h3>
-
+				
 			</div>
 			
 		</div>
@@ -115,9 +111,14 @@
 	</section>
 	<!------- main section Ends--------->
 
+
+
+	
+
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="js/css.js"></script>
+<script type="text/javascript" src="js/css-content.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
