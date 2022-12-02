@@ -171,6 +171,9 @@ ul, ol{
 #main.show-main{
 	display: block;
 }
+#css-info{
+	width: 75%;
+}
 #main h1{
 	font-size: 34px;
 	font-weight: 400;
