@@ -225,7 +225,16 @@ ul, ol{
 
 }
 #main ul li ul li{
+	list-style: none;
 	font-size: 14px;
+	position: relative;
+}
+#main ul li ul li::after{
+    content: "->";
+    position: absolute;
+    left: -22px;
+    top: 1px;
+
 }
 .btns{
 	text-decoration: none;
