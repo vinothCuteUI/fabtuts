@@ -66,6 +66,21 @@ let cssContents = [
 		            </ul>
 				</li>
 			</ul>
+			<div class="css-example">
+				<h4>Examples</h4>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+				  		div <span class="css-delimitercolor" style="color:black">{</span>
+				  			<span class="css-propertycolor" style="color:var(--primary-color);"><br>
+				  				&nbsp;&nbsp;padding<span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> 25px 50px 75px 100px; <span class="css-delimitercolor" style="color:black">;</span>
+				  				</span>
+				  				<br>
+							</span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
 			<p>If the <span class="fb-props-color">padding</span> property has three values:</p>
 			<ul>
 				<li><strong>padding: 25px 50px 75px;</strong>
@@ -76,7 +91,21 @@ let cssContents = [
 		            </ul>
 				</li>
 			</ul>
-
+			<div class="css-example">
+				<h4>Examples</h4>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+				  		div <span class="css-delimitercolor" style="color:black">{</span>
+				  			<span class="css-propertycolor" style="color:var(--primary-color);"><br>
+				  				&nbsp;&nbsp;padding<span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> 25px 50px 75px; <span class="css-delimitercolor" style="color:black">;</span>
+				  				</span>
+				  				<br>
+							</span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
 			<p>If the <span class="fb-props-color">padding</span> property has two values:</p>
 			<ul>
 				<li><strong>padding: 25px 50px;</strong>
@@ -86,6 +115,21 @@ let cssContents = [
 		            </ul>
 				</li>
 			</ul>
+			<div class="css-example">
+				<h4>Examples</h4>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+				  		div <span class="css-delimitercolor" style="color:black">{</span>
+				  			<span class="css-propertycolor" style="color:var(--primary-color);"><br>
+				  				&nbsp;&nbsp;padding<span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> 25px 50px; <span class="css-delimitercolor" style="color:black">;</span>
+				  				</span>
+				  				<br>
+							</span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
 			<p>If the <span class="fb-props-color">padding</span> property has one value:</p>
 			<ul>
 				<li><strong>padding: 25px;</strong>
@@ -94,6 +138,21 @@ let cssContents = [
 		            </ul>
 				</li>
 			</ul>
+			<div class="css-example">
+				<h4>Examples</h4>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+				  		div <span class="css-delimitercolor" style="color:black">{</span>
+				  			<span class="css-propertycolor" style="color:var(--primary-color);"><br>
+				  				&nbsp;&nbsp;padding<span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> 25px; <span class="css-delimitercolor" style="color:black">;</span>
+				  				</span>
+				  				<br>
+							</span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
 			<hr>
 			<h2>Padding and Element Width</h2>
 			<p>The CSS <span class="fb-props-color">width</span> property specifies the width of the element's content area. The content area is the portion inside the padding, border, and margin of an element (the box model).</p>
@@ -206,6 +265,186 @@ let cssContents = [
 		        <li><span class="fb-props-color">border-color</span></li>
 			</ul>	
 			<p>You can also specify all the individual border properties for just one side:</p>
+		`,
+		"margin":`
+			<h1>CSS Margins</h1>
+			<p>The CSS <span class="fb-props-color">margin</span> properties are used to create space around elements, outside of any defined borders.</p>
+			<p>With CSS, you have full control over the margins. There are properties for setting the margin for each side of an element (top, right, bottom, and left).</p>
+			<a href="#" class='btns tryit '>Try it yourself</a>
+			<hr>
+			<h2>Margin - Individual Sides</h2>
+			<p>CSS has properties for specifying the padding for each side of an element:</p>
+			<ul>
+				<li><span class="fb-props-color">margin-top</span></li>
+				<li><span class="fb-props-color">margin-right</span></li>
+				<li><span class="fb-props-color">margin-bottom</span></li>
+				<li><span class="fb-props-color">margin-left</span></li>
+			</ul>
+			<p>All the margin properties can have the following values:</p>
+			<ul>
+				<li>auto - the browser calculates the margin</li>
+				<li>length - specifies a margin in px, pt, cm, etc.</li>
+				<li>% - specifies a margin in % of the width of the containing element</li>
+				<li>inherit - specifies that the margin  should be inherited from the parent element</li>
+			</ul>
+			<div class="css-example">
+				<h4>Examples</h4>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+				  		div <span class="css-delimitercolor" style="color:black">{</span>
+				  			<span class="css-propertycolor" style="color:var(--primary-color);"><br>
+				  				&nbsp;&nbsp;margin-top<span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> 50px<span class="css-delimitercolor" style="color:black">;</span>
+				  				</span>
+				  				<br>
+								&nbsp;&nbsp;margin-right<span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> 30px<span class="css-delimitercolor" style="color:black">;</span>
+								</span><br>
+								&nbsp;&nbsp;margin-bottom<span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> 50px<span class="css-delimitercolor" style="color:black">;</span>
+								</span><br>
+								&nbsp;&nbsp;margin-left<span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> 80px<span class="css-delimitercolor" style="color:black">;</span>
+								</span><br>
+							</span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
+
+			<hr>
+			<h2>Margin - Shorthand Property</h2>
+			<p>To shorten the code, it is possible to specify all the margin properties in one property.</p>
+			<p>The <span class="fb-props-color">margin</span> property is a shorthand property for the following individual margin properties:</p>
+			<ul>
+				<li><span class="fb-props-color">margin-top</span></li>
+				<li><span class="fb-props-color">margin-right</span></li>
+				<li><span class="fb-props-color">margin-bottom</span></li>
+				<li><span class="fb-props-color">margin-left</span></li>
+			</ul>
+			<p>So, here is how it works:</p>
+			<p>If the <span class="fb-props-color">margin</span> property has four values:</p>
+			<ul>
+				<li>
+					<strong>margin: 25px 50px 75px 100px;</strong>
+		            <ul>
+		            	<li>top margin is 25px</li>
+		            	<li>right margin is 50px</li>
+		            	<li>bottom margin is 75px</li>
+		            	<li>left margin is 100px</li>
+		            </ul>
+				</li>
+			</ul>
+			
+			<div class="css-example">
+				<h4>Examples</h4>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+				  		div <span class="css-delimitercolor" style="color:black">{</span>
+				  			<span class="css-propertycolor" style="color:var(--primary-color);"><br>
+				  				&nbsp;&nbsp;margin<span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> 25px 50px 75px 100px; <span class="css-delimitercolor" style="color:black">;</span>
+				  				</span>
+				  				<br>
+							</span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
+
+			<p>If the <span class="fb-props-color">margin</span> property has three values:</p>
+			<ul>
+				<li><strong>margin: 25px 50px 75px;</strong>
+		            <ul>
+		            	<li>top margin is 25px</li>
+		            	<li>right and left margins are 50px</li>
+		            	<li>bottom margin is 75px</li>
+		            </ul>
+				</li>
+			</ul>
+
+			<div class="css-example">
+				<h4>Examples</h4>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+				  		div <span class="css-delimitercolor" style="color:black">{</span>
+				  			<span class="css-propertycolor" style="color:var(--primary-color);"><br>
+				  				&nbsp;&nbsp;margin<span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> 25px 50px 75px; <span class="css-delimitercolor" style="color:black">;</span>
+				  				</span>
+				  				<br>
+							</span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
+
+			<p>If the <span class="fb-props-color">margin</span> property has two values:</p>
+			<ul>
+				<li><strong>margin: 25px 50px;</strong>
+		            <ul>
+		            	<li>top and bottom margins are 25px</li>
+		            	<li>right and left margins are 50px</li>
+		            </ul>
+				</li>
+			</ul>
+			<div class="css-example">
+				<h4>Examples</h4>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+				  		div <span class="css-delimitercolor" style="color:black">{</span>
+				  			<span class="css-propertycolor" style="color:var(--primary-color);"><br>
+				  				&nbsp;&nbsp;margin<span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> 25px 50px; <span class="css-delimitercolor" style="color:black">;</span>
+				  				</span>
+				  				<br>
+							</span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
+			<p>If the <span class="fb-props-color">margin</span> property has one value:</p>
+			<ul>
+				<li><strong>margin: 25px;</strong>
+		            <ul>
+		           	    <li>all four paddings are 25px</li>
+		            </ul>
+				</li>
+			</ul>
+			<div class="css-example">
+				<h4>Examples</h4>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+				  		div <span class="css-delimitercolor" style="color:black">{</span>
+				  			<span class="css-propertycolor" style="color:var(--primary-color);"><br>
+				  				&nbsp;&nbsp;margin<span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> 25px; <span class="css-delimitercolor" style="color:black">;</span>
+				  				</span>
+				  				<br>
+							</span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
+			<h2>The auto Value</h2>
+			<p>You can set the <span class="fb-props-color">margin</span> property to auto to horizontally center the element within its container.</p>
+			<p>The element will then take up the specified width, and the remaining space will be split equally between the left and right margins.</p>
+			<div class="css-example">
+				<h4>Examples</h4>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+				  		div <span class="css-delimitercolor" style="color:black">{</span>
+				  			<span class="css-propertycolor" style="color:var(--primary-color);"><br>
+				  				&nbsp;&nbsp;width<span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> 300px; <span class="css-delimitercolor" style="color:black">;</span>
+				  				</span>
+				  				<br>
+				  				&nbsp;&nbsp;margin<span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> auto; <span class="css-delimitercolor" style="color:black">;</span>
+				  				</span>
+				  				<br>
+							</span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
+			<hr>
 		`
 	}
 ]
