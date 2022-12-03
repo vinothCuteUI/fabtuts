@@ -257,12 +257,27 @@ ul, ol{
 	position: relative;
 	padding: 50px 15px 10px;
 	height: 50%;
+	overflow: hidden;
+	overflow-y: auto;
 }
 .viewdetails{
 	position: absolute;
-	top: 5px;
-	right: 5px;
-
+    top: 5px;
+    right: -110px;
+    border-radius: 0;
+    padding-left: 12px;
+    /*background: transparent;
+    color: #000;*/
+    border: solid 1px #ccc;
+    box-shadow: none;
+    transition: all 0.5s ease;
+}
+.viewdetails i{
+	margin: 0 10px 0 0;
+}
+.viewdetails:hover{
+	right: 0;
+	/*color: #000;*/
 }
 .css-code{
 	padding: 10px 15px;
@@ -396,8 +411,10 @@ ul, ol{
 .props-list .cssval{
 	padding-left: 8px;
 	flex-grow: 1;
+	display: flex;
 }
-.props-list .cssval input.css-inpt{
+.props-list .cssval input.css-inpt,
+.props-list .cssval select.css-select{
 	width: 90px;
     height: 30px;
     border: solid 1px #000 !important;

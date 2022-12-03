@@ -26,14 +26,15 @@ let cssData = [
 		],
 		"border":[
 			{
-				"border": "5px solid red",
+				"border": "5px predefind-style red",
 				"border-width": "2px",
-				"border-style":"dashed",
+				"border-style":"predefind-style",
 				"border-color":"green",
-				"border-top-style": "dotted",
-				"border-right-style": "solid",
-				"border-bottom-style": "dotted",
-				"border-left-style": "solid",
+				"border-top-style": "predefind-style",
+				"border-right-style": "predefind-style",
+				"border-bottom-style": "predefind-style",
+				"border-left-style": "predefind-style",
+				"predefind-style":["solid", "dotted", "dashed"]
 			},
 			
 			{

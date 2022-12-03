@@ -12,7 +12,8 @@ let _props = "padding", _demoElmId, _cssList, _divElm, _optContent, _cssProperti
 _propertyOption, _outPutTag, _htmlView, _outPtElm, _cssProp, _isClick, 
 _dropDownCss, _cssOptions, _cssPropList, getActiveOpt, _newCssKeyVal, 
 _cssKey, _cssVal, _cssValInpt, _getPropsVal, _inptBox, _addShorthand, 
-_getProps, _getId, _editElm;
+_getProps, _getId, _editElm, strPredefind = "", preDefind, _upPreDefStr;
+
 
 let _getEditCssObj = {}, _updateVal = [], _initObjProp, _initObjVal,
  _getUptStyle, updateStyle,
@@ -95,11 +96,11 @@ for(let i = 0; i < _dropDownCss.length; i++){
 }
 
 
-
+let cssPr;
 
 //Initial load 
 let onCssLoad = ()=>{
-	let cssPr;
+	
 	_getEditCssObj = {};
 	cssData.forEach(function(obj, indx) {
 		newArrObj.shift();
@@ -130,6 +131,7 @@ let onCssLoad = ()=>{
 	}
 	//load css properties
 	newArrObj.forEach( function(obj, indx) {
+		cssPr = obj[0];
 		_outPutTag.innerHTML = obj[1]["htmlDOM"];
 		_htmlView.innerHTML = obj[1]["htmlView"];
 		_selector.innerText = document.getElementsByClassName("fb-tag")[1].innerText;
@@ -153,6 +155,7 @@ let onCssLoad = ()=>{
 		_initObjVal = Object.values(obj[0])[0];
 		
 		addCssProps(Object.keys(obj[0])[0]);
+		preDefindOpt(obj[0], _initObjVal);
 		_getEditCssObj[_initObjProp] = _initObjVal;
 		
 		
@@ -218,6 +221,7 @@ let onCssOption = function(e){
 	}
 }
 
+
 function addCssProps(getCss){
 	newArrObj.forEach(function(cssOp, indVal) {
 		for(let i in cssOp[0]){
@@ -240,19 +244,40 @@ function addCssProps(getCss){
 				_cssKey.innerText = i+" :";
 				// _cssVal.innerText = cssOp[i]+";";
 
-				 _getPropsVal = cssOp[0][i].split(" ");
+				 // _getPropsVal = cssOp[0][i].split(" ");
 				
+				 preDefindOpt(cssOp[0], cssOp[0][i]);
+
 				for(let x = 0; x < _getPropsVal.length; x++){
-				
-					_cssValInpt = document.createElement("input");
-					_cssValInpt.setAttribute("type", "text");
-					_cssValInpt.setAttribute("class", "css-inpt"+" "+ i);
-					// _cssValInpt.setAttribute("class", i);
 
-					_cssValInpt.setAttribute("data-type", i);
+					
 
-					_cssValInpt.value = _getPropsVal[x];
-					_cssVal.appendChild(_cssValInpt);
+					if(_getPropsVal[x] == strPredefind){
+						let _cssValSelect = document.createElement("select");
+						_cssValSelect.setAttribute("class", "css-select"+" "+ i);
+						_cssValSelect.setAttribute("data-type", i);
+						
+						for(let z = 0; z < preDefind.length; z++){
+							let _cssValOption = document.createElement("option");
+							_cssValOption.value = preDefind[z];
+							_cssValOption.innerText = preDefind[z];
+							_cssValSelect.appendChild(_cssValOption);
+						}
+						_cssVal.appendChild(_cssValSelect);
+					}else{
+						_cssValInpt = document.createElement("input");
+						_cssValInpt.setAttribute("type", "text");
+						_cssValInpt.setAttribute("class", "css-inpt"+" "+ i);
+						// _cssValInpt.setAttribute("class", i);
+
+						_cssValInpt.setAttribute("data-type", i);
+
+						_cssValInpt.value = _getPropsVal[x];
+						_cssVal.appendChild(_cssValInpt);
+					}
+					
+					
+					
 					
 				}
 				
@@ -263,9 +288,13 @@ function addCssProps(getCss){
 				//update css
 				onUpdateCss();
 				_inptBox = document.getElementsByClassName("css-inpt");
+				let _selectBox = document.getElementsByClassName("css-select");
 
 				for(let n = 0; n < _inptBox.length; n++){
 					_inptBox[n].addEventListener("keyup", onEdit);
+				}
+				for(let n = 0; n < _selectBox.length; n++){
+					_selectBox[n].addEventListener("change", onEdit);
 				}
 
 
@@ -291,19 +320,47 @@ let onEdit = function(str){
 	 onUpdateCss();
 }
 
+let newPreDef;
+function preDefindOpt(props, val){
+	_getPropsVal = val.split(" ");
+	// console.log(props, _getPropsVal)
+	for(let i = 0; i < _getPropsVal.length; i++){
+		for(let s in props){
+			if(_getPropsVal[i] == s){
+				
+				strPredefind = s;
+				preDefind = props[s];
+			}
+		}
+	}
+	if(newPreDef != ""){
+		newPreDef = cssPr[strPredefind];
+	}
 
-
+}
 
 // update edit css poperties
 let onUpdateCss = ()=>{
 	_getUptStyle = "";
 	updateStyle = "";
 	_style.innerHTML = "";
+	
 	for(let stl in _getEditCssObj){
-	 	_getUptStyle += stl+":"+_getEditCssObj[stl]+";";
-	 }
-	 updateStyle = "#"+_props+"-demo"+"{"+_getUptStyle+"}";
+		let setVal = _getEditCssObj[stl].split(" ");
+		for(let i = 0; i < setVal.length; i++){
+			if(setVal[i] == strPredefind){
+				_upPreDefStr += newPreDef[0]+" ";
+				// _getUptStyle += stl+":"+setVal[i]+";";
+			}else{
+				_upPreDefStr += setVal[i]+" ";	
+			}
+		}
+		_getUptStyle += stl+":"+_upPreDefStr+";";
+		_upPreDefStr = [];
+	}
+	updateStyle = "#"+_props+"-demo"+"{"+_getUptStyle+"}";
 	_style.appendChild(document.createTextNode(updateStyle));
+	
 }
 
 
