@@ -12,8 +12,7 @@ let _props = "padding", _demoElmId, _cssList, _divElm, _optContent, _cssProperti
 _propertyOption, _outPutTag, _htmlView, _outPtElm, _cssProp, _isClick, 
 _dropDownCss, _cssOptions, _cssPropList, getActiveOpt, _newCssKeyVal, 
 _cssKey, _cssVal, _cssValInpt, _getPropsVal, _inptBox, _addShorthand, 
-_getProps, _getId, _editElm, strPredefind = "", preDefind, _upPreDefStr;
-
+_getProps, _getId, _editElm, strPredefind, preDefind, _upPreDefStr, newPreDef, cssPr;
 
 let _getEditCssObj = {}, _updateVal = [], _initObjProp, _initObjVal,
  _getUptStyle, updateStyle,
@@ -96,7 +95,6 @@ for(let i = 0; i < _dropDownCss.length; i++){
 }
 
 
-let cssPr;
 
 //Initial load 
 let onCssLoad = ()=>{
@@ -155,21 +153,22 @@ let onCssLoad = ()=>{
 		_initObjVal = Object.values(obj[0])[0];
 		
 		addCssProps(Object.keys(obj[0])[0]);
-		preDefindOpt(obj[0], _initObjVal);
-		_getEditCssObj[_initObjProp] = _initObjVal;
+		// preDefindOpt(obj[0], _initObjVal);
+		// _getEditCssObj[_initObjProp] = _initObjVal;
 		
 		
 		for(let i in obj[0]){
-			
-			_cssPropList = document.createElement("li");
-			_cssPropList.setAttribute("class", "css-options");
-			_cssPropList.setAttribute("data-id", i);
-			_cssPropList.setAttribute("data-checked", false);
-			_cssPropList.innerText = i;
-			_propertyOption.appendChild(_cssPropList);
-			_getActiveOpt = document.getElementsByClassName("css-options")[0];
-			_getActiveOpt.classList.add("active");
-			_getActiveOpt.setAttribute("data-checked", true);
+			if (i.split("-")[0] != "predefind") {
+				_cssPropList = document.createElement("li");
+				_cssPropList.setAttribute("class", "css-options");
+				_cssPropList.setAttribute("data-id", i);
+				_cssPropList.setAttribute("data-checked", false);
+				_cssPropList.innerText = i;
+				_propertyOption.appendChild(_cssPropList);
+				_getActiveOpt = document.getElementsByClassName("css-options")[0];
+				_getActiveOpt.classList.add("active");
+				_getActiveOpt.setAttribute("data-checked", true);
+			}
 
 		}
 		_cssOptions = document.getElementsByClassName("css-options");
@@ -179,7 +178,7 @@ let onCssLoad = ()=>{
 
 		}
 	});
-	;
+	
 	//update css
 	onUpdateCss();
 
@@ -201,7 +200,8 @@ let onCssOption = function(e){
 	
 	if(_isChecked == "true"){
 		addCssProps(_getCss);
-	}else{
+	}
+	else{
 
 		//Delete css props obj
 		delete _getEditCssObj[_getCss];
@@ -247,25 +247,32 @@ function addCssProps(getCss){
 				 // _getPropsVal = cssOp[0][i].split(" ");
 				
 				 preDefindOpt(cssOp[0], cssOp[0][i]);
-
+				 let _notValOpt;
 				for(let x = 0; x < _getPropsVal.length; x++){
 
 					
+					for(let n = 0; n < strPredefind.length; n++){
+						if(_getPropsVal[x] == strPredefind[n]){
 
-					if(_getPropsVal[x] == strPredefind){
-						let _cssValSelect = document.createElement("select");
-						_cssValSelect.setAttribute("class", "css-select"+" "+ i);
-						_cssValSelect.setAttribute("data-type", i);
-						
-						for(let z = 0; z < preDefind.length; z++){
-							let _cssValOption = document.createElement("option");
-							_cssValOption.value = preDefind[z];
-							_cssValOption.innerText = preDefind[z];
-							_cssValSelect.appendChild(_cssValOption);
+							let _cssValSelect = document.createElement("select");
+							_cssValSelect.setAttribute("class", "css-select"+" "+ i);
+							_cssValSelect.setAttribute("data-type", i);
+							preDefind = cssPr[strPredefind[n]];
+		
+							for(let z = 0; z < preDefind.length; z++){
+								let _cssValOption = document.createElement("option");
+								_cssValOption.value = preDefind[z];
+								_cssValOption.innerText = preDefind[z];
+								_cssValSelect.appendChild(_cssValOption);
+							}
+							_cssVal.appendChild(_cssValSelect);
+							_notValOpt = x;
 						}
-						_cssVal.appendChild(_cssValSelect);
-					}else{
+					}
+					if(x != _notValOpt){
+						
 						_cssValInpt = document.createElement("input");
+						
 						_cssValInpt.setAttribute("type", "text");
 						_cssValInpt.setAttribute("class", "css-inpt"+" "+ i);
 						// _cssValInpt.setAttribute("class", i);
@@ -274,19 +281,24 @@ function addCssProps(getCss){
 
 						_cssValInpt.value = _getPropsVal[x];
 						_cssVal.appendChild(_cssValInpt);
+						
+						
+						
 					}
 					
 					
-					
-					
 				}
+				_cssValSpan = document.createElement("div");
+				_cssValSpan.innerText = ";";
 				
 				_newCssKeyVal.appendChild(_cssKey);
 				_newCssKeyVal.appendChild(_cssVal);
-
+				_newCssKeyVal.appendChild(_cssValSpan);
 				_cssProperties.appendChild(_newCssKeyVal);
+
 				//update css
 				onUpdateCss();
+
 				_inptBox = document.getElementsByClassName("css-inpt");
 				let _selectBox = document.getElementsByClassName("css-select");
 
@@ -320,44 +332,58 @@ let onEdit = function(str){
 	 onUpdateCss();
 }
 
-let newPreDef;
-function preDefindOpt(props, val){
+
+let preDefindOpt = function(props, val){
 	_getPropsVal = val.split(" ");
-	// console.log(props, _getPropsVal)
+	strPredefind = [];
 	for(let i = 0; i < _getPropsVal.length; i++){
 		for(let s in props){
 			if(_getPropsVal[i] == s){
-				
-				strPredefind = s;
-				preDefind = props[s];
+				strPredefind.push(s);
 			}
 		}
 	}
-	if(newPreDef != ""){
-		newPreDef = cssPr[strPredefind];
-	}
+	// if(newPreDef != ""){
+	// 	newPreDef = cssPr[strPredefind];
+	// }
+	
 
 }
 
 // update edit css poperties
 let onUpdateCss = ()=>{
+	
 	_getUptStyle = "";
 	updateStyle = "";
+	_upPreDefStr = "";
 	_style.innerHTML = "";
-	
+	let _notValid;
+
 	for(let stl in _getEditCssObj){
 		let setVal = _getEditCssObj[stl].split(" ");
+
 		for(let i = 0; i < setVal.length; i++){
-			if(setVal[i] == strPredefind){
-				_upPreDefStr += newPreDef[0]+" ";
-				// _getUptStyle += stl+":"+setVal[i]+";";
-			}else{
-				_upPreDefStr += setVal[i]+" ";	
+
+			for(let x = 0; x < strPredefind.length; x++){
+
+				if(setVal[i] == strPredefind[x]){
+					newPreDef = cssPr[setVal[i]]
+					_upPreDefStr+=newPreDef[0]+" ";
+					_notValid = i;
+				}
+
 			}
+			if(i != _notValid){
+				_upPreDefStr+=setVal[i]+" ";
+			}
+			
 		}
-		_getUptStyle += stl+":"+_upPreDefStr+";";
+
+		_getUptStyle+=stl+":"+_upPreDefStr+";";
+		_getEditCssObj[stl] = _upPreDefStr;
 		_upPreDefStr = [];
 	}
+	
 	updateStyle = "#"+_props+"-demo"+"{"+_getUptStyle+"}";
 	_style.appendChild(document.createTextNode(updateStyle));
 	

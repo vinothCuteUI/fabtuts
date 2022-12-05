@@ -34,7 +34,7 @@ let cssData = [
 				"border-right-style": "predefind-style",
 				"border-bottom-style": "predefind-style",
 				"border-left-style": "predefind-style",
-				"predefind-style":["solid", "dotted", "dashed"]
+				"predefind-style":["solid", "dotted", "dashed", "double", "groove", "ridge", "inset", "outset", "none", "hidden"]
 			},
 			
 			{
@@ -76,11 +76,13 @@ let cssData = [
 		],
 		"list-style":[
 			{
-				"list-style": `square inside url("images/sqicon.gif")`,
-				"list-style-type": `circle`,
-				"list-style-position":`outside`,
-				"list-style-image":`url("images/sqicon.gif")`
-				
+				"list-style": "predefind-type predefind-position url('images/sqicon.gif')",
+				"list-style-type": "predefind-type",
+				"list-style-position":"predefind-position",
+				"list-style-image":"url('images/sqicon.gif')",
+				"predefind-type":["circle", "square", "decimal", "disc", "disclosure-closed", "disclosure-open", "initial", "inherit", "upper-roman", "lower-alpha", "none"],
+				"predefind-position":["inside", "outside"]
+			
 			},
 			
 			{
@@ -110,11 +112,13 @@ let cssData = [
 				"background-position-x":"left",
 				"background-position-y":"bottom",
 				"background-size":"cover",
-				"background-repeat":"no-repeat",				
+				"background-repeat":"predefind-repeat",				
 				"background-origin":"padding-box",
 				"background-clip":"border-box",
-				"background-attachment":"fixed",
-				"background-blend-mode":"lighten"
+				"background-attachment":"predefind-attachment",
+				"background-blend-mode":"lighten",
+				"predefind-repeat":["repeat", "no-repeat", "repeat-x", "repeat-y"],
+				"predefind-attachment":["fixed", "scroll"]
 			},
 			{
 				"htmlView":`
@@ -129,12 +133,13 @@ let cssData = [
 		"text-alignment":[
 			{
 				"color":"red",
-				"text-align":"center",
-				"text-align-last":"justify",
+				"text-align":"predefind-h-align",
+				"text-align-last":"predefind-h-align",
 			    "direction":"rtl",
 				"unicode-bidi":"bidi-override",
-				"vertical-align":"baseline"
-
+				// "vertical-align":"predefind-v-align",
+				"predefind-h-align":["left", "center", "right", "justify"],
+				"predefind-v-align":["baseline", "text-top", "text-bottom", "sub", "super"]
 			},
 			{
 				"htmlView":`
@@ -148,11 +153,14 @@ let cssData = [
 		],
 		"text-decoration":[
 			{
-				"text-decoration-line":"overline",
+				"text-decoration-line":"predefind-d-line",
 				"text-decoration-color":"red",
-				"text-decoration-style":"dotted",
+				"text-decoration-style":"predefind-d-style",
 				"text-decoration-thickness":"5px",
-				"text-decoration":"underline red dashed 5px"
+				"text-decoration":"predefind-d-line red predefind-d-style 5px",
+				"predefind-d-line":["overline", "line-through", "underline", "overline underline", "none"],
+				"predefind-d-style":["solid", "double", "dotted", "dashed", "wavy"]
+
 			},
 			{
 				"htmlView":`
