@@ -405,7 +405,7 @@ ul, ol{
 
 .props-list{
 	display: flex;
-	padding-bottom: 1.3em;
+	padding-bottom: 10px;
 	align-items: center;
 }
 .props-list .cssval{
@@ -443,3 +443,7 @@ ul, ol{
 .demo-tags.active{
 	display: block;
 }*/
+
+.csskey{
+	color: var(--primary-color);
+}
