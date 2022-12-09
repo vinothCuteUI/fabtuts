@@ -635,6 +635,24 @@ let cssContents = [
 			<a href="#" class='btns tryit '>Try it yourself</a>
 			<hr>
 		`,
+		"text-transform":`
+			<h1>CSS Text Transform</h1>
+			<p>Content will be add shortly</p>
+			<a href="#" class='btns tryit '>Try it yourself</a>
+			<hr>
+		`,
+		"text-spacing":`
+			<h1>CSS Text Spacing</h1>
+			<p>Content will be add shortly</p>
+			<a href="#" class='btns tryit '>Try it yourself</a>
+			<hr>
+		`,
+		"text-shadow":`
+			<h1>CSS Text Shadow</h1>
+			<p>Content will be add shortly</p>
+			<a href="#" class='btns tryit '>Try it yourself</a>
+			<hr>
+		`,
 		
 	}
 ]

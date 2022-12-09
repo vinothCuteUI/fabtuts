@@ -152,6 +152,7 @@ ul, ol{
 	flex-grow: 1;
 	display: none;
 	position: relative;
+	overflow: hidden;
 }
 .code-container.show-code{
 	display: flex;
@@ -160,6 +161,7 @@ ul, ol{
 	width: 50%;
 	display: flex;
     flex-direction: column;
+    flex: 0 0 auto;
 }
 #main{
 	display: none;
@@ -432,6 +434,8 @@ ul, ol{
 	width: 50%;
 	border-left: solid 1px #ccc;
 	padding: 10px 15px;
+	overflow: auto;
+    flex: 0 0 auto;
 }
 #codeOutPut{
 	width: 100%;

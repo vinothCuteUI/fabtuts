@@ -149,6 +149,7 @@ let cssData = [
 					<span class='fb-tag fb-bracket'><</span><span class='fb-tag'>/p</span><span class='fb-tag fb-bracket'>></span>
 				</p>`,
 				"htmlDOM":`<p id="text-alignment-demo" class="demo-tags text-alignment-demo">Sed sit amet nunc sit amet nulla auctor congue a ac odio. Suspendisse potenti. Aenean sollicitudin nisl tincidunt, iaculis urna sed, dignissim dui. Sed id hendrerit neque. Mauris at sodales velit. Pellentesque porta et justo vel vehicula. Vivamus viverra libero mollis lobortis tempor. Nullam pulvinar at justo quis imperdiet. Aliquam sed aliquet tortor. Sed convallis ex posuere ligula ullamcorper, sit amet malesuada lacus lacinia. Proin viverra viverra sapien, a interdum lacus bibendum eget.</p>`
+			
 			}
 		],
 		"text-decoration":[
@@ -171,6 +172,42 @@ let cssData = [
 				</p>`,
 				"htmlDOM":`<h3 id="text-decoration-demo" class="demo-tags text-decoration-demo">Css Text Decoration</h3>`
 
+			}
+		],
+		"text-transform":[
+			{
+				"text-transform":"predefind-text-transform",
+				"predefind-text-transform":["uppercase", "lowercase", "capitalize"]
+			},
+			{
+				"htmlView":`
+				<p class='code-mirror'>
+					<span class='fb-tag fb-bracket'><</span><span class='fb-tag'>h3</span><span class='fb-tag fb-bracket'>></span>
+					<span class='fb-cn'>Css Text transform</span>
+					<span class='fb-tag fb-bracket'><</span><span class='fb-tag'>/h3</span><span class='fb-tag fb-bracket'>></span>
+				</p>`,
+				"htmlDOM":`<h3 id="text-transform-demo" class="demo-tags text-transform-demo">Css text transform</h3>`
+
+			}
+		],
+		"text-spacing":[
+			{
+				"text-indent":"50px",
+				"letter-spacing":"5px",
+				"line-height":"1.8",
+				"word-spacing":"10px",
+				"white-space":"predefind-white-space",
+				"predefind-white-space":["nowrap", "normal", "pre"]
+			},
+			{
+				"htmlView":`
+				<p class='code-mirror'>
+					<span class='fb-tag fb-bracket'><</span><span class='fb-tag'>p</span><span class='fb-tag fb-bracket'>></span>
+					<span class='fb-cn'>Sed sit amet nunc sit amet nulla auctor congue a ac odio. Suspendisse potenti. Aenean sollicitudin nisl tincidunt, iaculis urna sed, dignissim dui. Sed id hendrerit neque. Mauris at sodales velit. Pellentesque porta et justo vel vehicula. Vivamus viverra libero mollis lobortis tempor. Nullam pulvinar at justo quis imperdiet. Aliquam sed aliquet tortor. Sed convallis ex posuere ligula ullamcorper, sit amet malesuada lacus lacinia. Proin viverra viverra sapien, a interdum lacus bibendum eget.</span>
+					<span class='fb-tag fb-bracket'><</span><span class='fb-tag'>/p</span><span class='fb-tag fb-bracket'>></span>
+				</p>`,
+				"htmlDOM":`<p id="text-spacing-demo" class="demo-tags text-spacing-demo">Sed sit amet nunc sit amet nulla auctor congue a ac odio. Suspendisse potenti. Aenean sollicitudin nisl tincidunt, iaculis urna sed, dignissim dui. Sed id hendrerit neque. Mauris at sodales velit. Pellentesque porta et justo vel vehicula. Vivamus viverra libero mollis lobortis tempor. Nullam pulvinar at justo quis imperdiet. Aliquam sed aliquet tortor. Sed convallis ex posuere ligula ullamcorper, sit amet malesuada lacus lacinia. Proin viverra viverra sapien, a interdum lacus bibendum eget.</p>`
+			
 			}
 		]
 

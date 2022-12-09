@@ -68,6 +68,7 @@ for(let i = 0; i < _cssList.length; i++){
 		 	onCssLoad();
 		 }
 		 _isClick = _indx;
+		 // document.getElementById("main").offsetTop = 0;
 	})
 }
 
@@ -290,7 +291,7 @@ function addCssProps(getCss){
 				}
 				_cssValSpan = document.createElement("div");
 				_cssValSpan.innerText = ";";
-				
+
 				_newCssKeyVal.appendChild(_cssKey);
 				_newCssKeyVal.appendChild(_cssVal);
 				_newCssKeyVal.appendChild(_cssValSpan);
