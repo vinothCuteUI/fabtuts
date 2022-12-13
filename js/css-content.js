@@ -1,6 +1,6 @@
 let cssContents = [
 	{
-		"padding":`
+		padding:`
 			<h1>CSS Padding</h1>
 			<p>The CSS <span class="fb-props-color">padding</span> properties are used to generate space around an element's content, inside of any defined borders.</p>
 			<p>With CSS, you have full control over the padding. There are properties for setting the padding for each side of an element (top, right, bottom, and left).</p>
@@ -160,7 +160,7 @@ let cssContents = [
 			<p>To keep the width at 300px, no matter the amount of padding, you can use the <span class="fb-props-color">box-sizing</span> property. This causes the element to maintain its actual width; if you increase the padding, the available content space will decrease.</p>
 			<hr>
 			`,
-		"border":`
+		border:`
 			<h1>CSS Borders</h1>
 			<p>The CSS <span class="fb-props-color">border</span>  properties allow you to specify the style, width, and color of an element's border.</p>
 			<p>With CSS, you have full control over the padding. There are properties for setting the padding for each side of an element (top, right, bottom, and left).</p>
@@ -266,7 +266,7 @@ let cssContents = [
 			</ul>	
 			<p>You can also specify all the individual border properties for just one side:</p>
 		`,
-		"margin":`
+		margin:`
 			<h1>CSS Margins</h1>
 			<p>The CSS <span class="fb-props-color">margin</span> properties are used to create space around elements, outside of any defined borders.</p>
 			<p>With CSS, you have full control over the margins. There are properties for setting the margin for each side of an element (top, right, bottom, and left).</p>
@@ -446,7 +446,7 @@ let cssContents = [
 			</div>
 			<hr>
 		`,
-		"list-style":`
+		listStyle:`
 			<h1>CSS Lists</h1>
 			<p>The List in CSS specifies the listing of the contents or items in a particular manner i.e., it can either be organized orderly or unorder way, which helps to make a clean webpage. It can be used to arrange the huge with a variety of content as they are flexible and easy to manage. </p>
 			<a href="#" class='btns tryit '>Try it yourself</a>
@@ -617,37 +617,37 @@ let cssContents = [
 
 			<hr>
 			`,
-		"background":`
+		background:`
 			<h1>CSS Backgrounds</h1>
 			<p>Content will be add shortly</p>
 			<a href="#" class='btns tryit '>Try it yourself</a>
 			<hr>
 		`,
-		"text-alignment":`
+		textAlignment:`
 			<h1>CSS Text Alignment</h1>
 			<p>Content will be add shortly</p>
 			<a href="#" class='btns tryit '>Try it yourself</a>
 			<hr>
 		`,
-		"text-decoration":`
+		textDecoration:`
 			<h1>CSS Text Decoration</h1>
 			<p>Content will be add shortly</p>
 			<a href="#" class='btns tryit '>Try it yourself</a>
 			<hr>
 		`,
-		"text-transform":`
+		textTransform:`
 			<h1>CSS Text Transform</h1>
 			<p>Content will be add shortly</p>
 			<a href="#" class='btns tryit '>Try it yourself</a>
 			<hr>
 		`,
-		"text-spacing":`
+		textSpacing:`
 			<h1>CSS Text Spacing</h1>
 			<p>Content will be add shortly</p>
 			<a href="#" class='btns tryit '>Try it yourself</a>
 			<hr>
 		`,
-		"text-shadow":`
+		textShadow:`
 			<h1>CSS Text Shadow</h1>
 			<p>Content will be add shortly</p>
 			<a href="#" class='btns tryit '>Try it yourself</a>
