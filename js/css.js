@@ -33,7 +33,11 @@ let cssData = [
 			borderTopStyle: "predefindStyle",
 			borderRightStyle: "predefindStyle",
 			borderBottomStyle: "predefindStyle",
-			borderLeftStyle: "predefindStyle"
+			borderLeftStyle: "predefindStyle",
+			borderTopColor:"red",
+			borderRightColor:"green",
+			borderBottomColor:"blue",
+			borderLeftColor:"orange"
 		},
 		preDefind:
 		{
@@ -138,4 +142,57 @@ let cssData = [
 		htmlDOM:`<div id="background-demo" class="demo-tags background-demo"></div>`
 		
 	},
+	{
+		cssItems:"textAlignment", 
+		property:
+		{
+			color:"red",
+			textAlign:"predefindHAlign",
+		    direction:"predefindDirection",
+			unicodeBidi:"predefindBidiOverride",
+			textTransform:"predefindTextTransform"
+		},
+		preDefind:
+		{
+			predefindHAlign:["left", "center", "right", "justify"],
+			predefindTextTransform:["uppercase", "lowercase", "capitalize"],
+			predefindBidiOverride:["bidi-override"],
+			predefindDirection:["ltr", "rtl", "inherit", "initial", "revert", "revert-layer", "unset"]
+		},
+		htmlView:
+				`<p class='code-mirror'>
+					<span class='fb-tag fb-bracket'><</span><span class='fb-tag'>p</span><span class='fb-tag fb-bracket'>></span>
+					<span class='fb-cn'>Sed sit amet nunc sit amet nulla auctor congue a ac odio. Suspendisse potenti. Aenean sollicitudin nisl tincidunt, iaculis urna sed, dignissim dui. Sed id hendrerit neque. Mauris at sodales velit. Pellentesque porta et justo vel vehicula. Vivamus viverra libero mollis lobortis tempor. Nullam pulvinar at justo quis imperdiet. Aliquam sed aliquet tortor. Sed convallis ex posuere ligula ullamcorper, sit amet malesuada lacus lacinia. Proin viverra viverra sapien, a interdum lacus bibendum eget.</span>
+					<span class='fb-tag fb-bracket'><</span><span class='fb-tag'>/p</span><span class='fb-tag fb-bracket'>></span>
+				</p>`,
+		htmlDOM:`<p id="textAlignment-demo" class="demo-tags text-alignment-demo">Sed sit amet nunc sit amet nulla auctor congue a ac odio. 
+		Suspendisse potenti. Aenean sollicitudin nisl tincidunt, iaculis urna sed, dignissim dui. Sed id hendrerit neque. Mauris at sodales velit. 
+		Pellentesque porta et justo vel vehicula. Vivamus viverra libero mollis lobortis tempor. Nullam pulvinar at justo quis imperdiet.</p>`
+		
+	},
+	{
+		cssItems:"textDecoration", 
+		property:
+		{
+			textDecorationLine:"predefindDLine",
+			textDecorationColor:"red",
+		    textDecorationStyle:"predefindDStyle",
+			textDecorationThickness:"5px",
+			textDecoration:"predefindDLine red predefindDStyle 5px"
+		},
+		preDefind:
+		{
+			predefindDLine:["overline", "line-through", "underline", "overline underline", "none"],
+			predefindDStyle:["solid", "double", "dotted", "dashed", "wavy"]
+		},
+		htmlView:
+				`<p class='code-mirror'>
+					<span class='fb-tag fb-bracket'><</span><span class='fb-tag'>h3</span><span class='fb-tag fb-bracket'>></span>
+					<span class='fb-cn'>Css Text Decoration</span>
+					<span class='fb-tag fb-bracket'><</span><span class='fb-tag'>/h3</span><span class='fb-tag fb-bracket'>></span>
+				</p>`,
+		htmlDOM:`<h3 id="textDecoration-demo" class="demo-tags text-decoration-demo">Css Text Decoration</h3>`
+		
+	},
+	
 ]

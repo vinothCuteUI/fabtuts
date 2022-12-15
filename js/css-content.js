@@ -619,16 +619,291 @@ let cssContents = [
 			`,
 		background:`
 			<h1>CSS Backgrounds</h1>
-			<p>Content will be add shortly</p>
-			<a href="#" class='btns tryit '>Try it yourself</a>
+				<hr>
+				<p>The CSS background properties are used to add background effects for elements.</p>  
+				<hr>
+				<div style="border:1px solid gray;padding:16px;background:no-repeat center center;background-size: cover;background-image: linear-gradient(rgb(255 255 255 / 73%), rgb(255 255 255 / 73%)), url(images/course-1.jpg);">
+					<p>In these chapters, you will learn about the following CSS background properties:</p>
+					<ul>
+						<li><span class="fb-props-color">background-color</span></li>
+						<li><span class="fb-props-color">background-image</span></li>
+						<li><span class="fb-props-color">background-repeat</span></li>
+						<li><span class="fb-props-color">background-attachment</span></li>
+						<li><span class="fb-props-color">background-position</span></li>
+						<li><span class="fb-props-color">background</span></li>
+					</ul>
+				</div>
+				<hr>
+				<h2>CSS background-color</h2>
+				<p>The <span class="fb-props-color">background-color </span>property specifies the background color of an element.</p>
+
+			<div class="css-example">
+				<h4>Examples</h4>
+				<p>The background color of a page is set like this:</p>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+							body <span class="css-delimitercolor" style="color:black">{</span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									<br>
+									&nbsp;&nbsp; background-color <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> lightblue<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							</span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+					<br><br>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
 			<hr>
-		`,
+			<h2>CSS background-image</h2>
+			<p>The <span class="fb-props-color">background-image</span> property specifies an image to use as the background of an element.</p>
+			<p>By default, the image is repeated so it covers the entire element.</p>
+			<div class="css-example">
+				<h4>Examples</h4>
+				<p>Set the background image for a page:</p>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+							body <span class="css-delimitercolor" style="color:black">{</span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									<br>
+									&nbsp;&nbsp; background-image <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span>url("paper.gif")<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							</span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+					<br><br>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
+			<div class="css-example">
+				<h4>Examples</h4>
+				<p>The background image can also be set for specific elements, like the element:</p>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+							p <span class="css-delimitercolor" style="color:black">{</span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									<br>
+									&nbsp;&nbsp; background-image <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span>url("paper.gif")<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							</span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+					<br><br>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
+			<hr>
+			<h2>CSS background-repeat</h2>
+			<p>By default, the <span class="fb-props-color"> background-image </span>property repeats an image both horizontally and vertically.</p>
+			<p>Some images should be repeated only horizontally or vertically, or they will look strange, like this:</p>
+			<div class="css-example">
+				<h4>Examples</h4>
+				<p>Set the background image for a page:</p>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+							body <span class="css-delimitercolor" style="color:black">{</span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									<br>
+									&nbsp;&nbsp; background-image <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> url("gradient_bg.png")<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							</span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+					<br><br>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
+			<p>If the image above is repeated only horizontally (<span class="fb-props-color">background-repeat: repeat-x;</span>), the background will look better:</p>
+			<div class="css-example">
+				<h4>Examples</h4>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+							body <span class="css-delimitercolor" style="color:black">{</span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									<br>
+									&nbsp;&nbsp; background-image <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> url("gradient_bg.png")<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							</span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									&nbsp;&nbsp; background-repeat <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> repeat-x<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							</span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+					<br><br>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
+			<hr>
+			<h2>CSS background-position</h2>
+			<p>The <span class="fb-props-color">background-position</span> property is used to specify the position of the background image.</p>
+			<div class="css-example">
+				<h4>Examples</h4>
+				<p>Position the background image in the top-right corner:</p>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+							body <span class="css-delimitercolor" style="color:black">{</span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									<br>
+									&nbsp;&nbsp; background-image <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> url("gradient_bg.png")<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							</span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									&nbsp;&nbsp; background-repeat <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> repeat-x<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							   </span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									&nbsp;&nbsp; background-position <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> right top<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							   </span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+					<br><br>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
+			<hr>
+			<h2>CSS background-attachment</h2>
+			<p>The<span class="fb-props-color">background-attachment</span> specifies whether the background image should scroll or be fixed (will not scroll with the rest of the page):</p>
+			<div class="css-example">
+				<h4>Examples</h4>
+				<p>Specify that the background image should be fixed:</p>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+							body <span class="css-delimitercolor" style="color:black">{</span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									<br>
+									&nbsp;&nbsp; background-image <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> url("gradient_bg.png")<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							</span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									&nbsp;&nbsp; background-repeat <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> repeat-x<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							   </span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									&nbsp;&nbsp; background-position <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> right top<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							   </span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									&nbsp;&nbsp; background-attachment <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> fixed<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							   </span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+					<br><br>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
+
+			<div class="css-example">
+				<h4>Examples</h4>
+				<p>Specify that the background image should scroll with the rest of the page:</p>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+							body <span class="css-delimitercolor" style="color:black">{</span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									<br>
+									&nbsp;&nbsp; background-image <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> url("gradient_bg.png")<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							</span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									&nbsp;&nbsp; background-repeat <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> repeat-x<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							   </span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									&nbsp;&nbsp; background-position <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> right top<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							   </span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									&nbsp;&nbsp; background-attachment <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> scroll<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							   </span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+					<br><br>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
+			<hr>
+			<h2>CSS background - Shorthand property</h2>
+			<p>To shorten the code, it is also possible to specify all the background properties in one single property. This is called a shorthand property.</p>
+			<p>Instead of writing:</p>
+			<div class="css-example">
+				
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+							body <span class="css-delimitercolor" style="color:black">{</span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									<br>
+									&nbsp;&nbsp; background-image <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> url("gradient_bg.png")<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							</span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									&nbsp;&nbsp; background-repeat <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> repeat-x<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							   </span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									&nbsp;&nbsp; background-position <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> right top<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							   </span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									&nbsp;&nbsp; background-attachment <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> scroll<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							   </span>
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+					<br><br>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>
+			<p>You can use the shorthand property <span class="fb-props-color">background:</span></p>
+			<div class="css-example">
+				<h4>Example</h4>
+				<p>Use the shorthand property to set the background properties in one declaration:</p>
+				<div class="fb-code">
+					<span class="css-selectorcolor" style="color:brown">
+							body <span class="css-delimitercolor" style="color:black">{</span>
+								<span class="css-propertycolor" style="color:var(--primary-color);">
+									<br>
+									&nbsp;&nbsp; background-image <span class="css-propertyvaluecolor" style="color:black"><span class="css-delimitercolor" style="color:black">:</span> #ffffff&nbsp; url("img_tree.png")&nbsp; no-repeat &nbsp;right top<span class="css-delimitercolor" style="color:black">;</span>
+									</span>
+									<br>
+							</span>
+								
+						
+							<span class="css-delimitercolor" style="color:black">}</span> 
+					</span>
+					<br><br>
+				</div>
+				<a href="#" class='btns tryit '>Try it yourself</a>
+			</div>`,
 		textAlignment:`
 			<h1>CSS Text Alignment</h1>
 			<p>Content will be add shortly</p>
 			<a href="#" class='btns tryit '>Try it yourself</a>
 			<hr>
-		`,
+			`,
 		textDecoration:`
 			<h1>CSS Text Decoration</h1>
 			<p>Content will be add shortly</p>
