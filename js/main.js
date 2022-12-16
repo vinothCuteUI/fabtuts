@@ -58,7 +58,7 @@ for(let i = 0; i < _cssList.length; i++){
 		 	onCssLoad();
 		 }
 		 _isClick = _indx;
-		 // document.getElementById("main").offsetTop = 0;
+		 
 	})
 }
 
@@ -78,7 +78,7 @@ document.addEventListener('click', function(e){
 for(let i = 0; i < _dropDownCss.length; i++){
 	_dropDownCss[i].addEventListener("click", function(e){
 		e.preventDefault();
-		let _node = this.parentNode;
+		let _node = e.target.parentNode;
 		let dropNave = _node.getElementsByClassName("css-dropdown-nav");
 		dropNave[0].classList.toggle("active");
 	})

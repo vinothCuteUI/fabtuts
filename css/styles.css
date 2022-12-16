@@ -483,8 +483,8 @@ ul, ol{
 }
 
 .css-dropdown-nav > li:hover{
-	color: #fff;
-	background-color: var(--primary-color);
+	color: #222;
+	background-color: #eee;
 	
 }
 .css-dropdown-nav > li.active{

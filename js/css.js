@@ -194,5 +194,29 @@ let cssData = [
 		htmlDOM:`<h3 id="textDecoration-demo" class="demo-tags text-decoration-demo">Css Text Decoration</h3>`
 		
 	},
+	{
+		cssItems:"textDecoration", 
+		property:
+		{
+			textDecorationLine:"predefindDLine",
+			textDecorationColor:"red",
+		    textDecorationStyle:"predefindDStyle",
+			textDecorationThickness:"5px",
+			textDecoration:"predefindDLine red predefindDStyle 5px"
+		},
+		preDefind:
+		{
+			predefindDLine:["overline", "line-through", "underline", "overline underline", "none"],
+			predefindDStyle:["solid", "double", "dotted", "dashed", "wavy"]
+		},
+		htmlView:
+				`<p class='code-mirror'>
+					<span class='fb-tag fb-bracket'><</span><span class='fb-tag'>h3</span><span class='fb-tag fb-bracket'>></span>
+					<span class='fb-cn'>Css Text Decoration</span>
+					<span class='fb-tag fb-bracket'><</span><span class='fb-tag'>/h3</span><span class='fb-tag fb-bracket'>></span>
+				</p>`,
+		htmlDOM:`<h3 id="textDecoration-demo" class="demo-tags text-decoration-demo">Css Text Decoration</h3>`
+		
+	},
 	
 ]
