@@ -898,6 +898,7 @@ let cssContents = [
 				</div>
 				<a href="#" class='btns tryit '>Try it yourself</a>
 			</div>`,
+
 		textAlignment:`
 			<h1>CSS Text Alignment</h1>
 			<p>Content will be add shortly</p>
@@ -928,6 +929,8 @@ let cssContents = [
 			<a href="#" class='btns tryit '>Try it yourself</a>
 			<hr>
 		`,
+
+		
 		
 	}
 ]

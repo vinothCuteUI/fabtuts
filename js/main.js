@@ -73,7 +73,6 @@ document.addEventListener('click', function(e){
 
 
 
-
 //On css option nave enable function
 for(let i = 0; i < _dropDownCss.length; i++){
 	_dropDownCss[i].addEventListener("click", function(e){

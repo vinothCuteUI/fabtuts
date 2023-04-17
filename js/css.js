@@ -125,8 +125,6 @@ let cssData = [
 			backgroundSize:"cover",
 			backgroundRepeat:"predefindRepeat",				
 			backgroundAttachment:"predefindAttachment",
-			
-			
 		},
 		preDefind:
 		{
@@ -150,14 +148,20 @@ let cssData = [
 			textAlign:"predefindHAlign",
 		    direction:"predefindDirection",
 			unicodeBidi:"predefindBidiOverride",
-			textTransform:"predefindTextTransform"
+			textTransform:"predefindTextTransform",
+			textIndent:"10px",
+			letterSpacing: "1.5px",
+			lineHeight:"25px",
+			wordSpacing: "10px",
+			whiteSpace: "predefindWhiteSpace"
 		},
 		preDefind:
 		{
 			predefindHAlign:["left", "center", "right", "justify"],
 			predefindTextTransform:["uppercase", "lowercase", "capitalize"],
 			predefindBidiOverride:["bidi-override"],
-			predefindDirection:["ltr", "rtl", "inherit", "initial", "revert", "revert-layer", "unset"]
+			predefindDirection:["ltr", "rtl", "inherit", "initial", "revert", "revert-layer", "unset"],
+			predefindWhiteSpace:["nowrap", "normal", "pre"]
 		},
 		htmlView:
 				`<p class='code-mirror'>
@@ -195,28 +199,51 @@ let cssData = [
 		
 	},
 	{
-		cssItems:"textDecoration", 
+		cssItems:"textTransform", 
 		property:
 		{
-			textDecorationLine:"predefindDLine",
-			textDecorationColor:"red",
-		    textDecorationStyle:"predefindDStyle",
-			textDecorationThickness:"5px",
-			textDecoration:"predefindDLine red predefindDStyle 5px"
+			textTransform:"predefindTransform",
+			
 		},
 		preDefind:
 		{
-			predefindDLine:["overline", "line-through", "underline", "overline underline", "none"],
-			predefindDStyle:["solid", "double", "dotted", "dashed", "wavy"]
+			predefindTransform:["none", "capitalize", "uppercase", "lowercase", "initial", "inherit"]
+			
 		},
 		htmlView:
 				`<p class='code-mirror'>
 					<span class='fb-tag fb-bracket'><</span><span class='fb-tag'>h3</span><span class='fb-tag fb-bracket'>></span>
-					<span class='fb-cn'>Css Text Decoration</span>
+					<span class='fb-cn'>Css Text Transform</span>
 					<span class='fb-tag fb-bracket'><</span><span class='fb-tag'>/h3</span><span class='fb-tag fb-bracket'>></span>
 				</p>`,
-		htmlDOM:`<h3 id="textDecoration-demo" class="demo-tags text-decoration-demo">Css Text Decoration</h3>`
+		htmlDOM:`<h3 id="textTransform-demo" class="demo-tags text-textTransform-demo">Css Text Transform</h3>`
 		
 	},
+	{
+		cssItems:"textSpacing", 
+		property:
+		{
+			textIndent:"10px",
+			letterSpacing:"1px",
+			lineHeight:"2",
+			wordSpacing:"2px",
+			whiteSspace:"predefindWhiteSspace"
+			
+		},
+		preDefind:
+		{
+			predefindWhiteSspace:["nowrap", "normal", "pre"]
+			
+		},
+		htmlView:
+				`<p class='code-mirror'>
+					<span class='fb-tag fb-bracket'><</span><span class='fb-tag'>p</span><span class='fb-tag fb-bracket'>></span>
+					<span class='fb-cn'>Sed sit amet nunc sit amet nulla auctor congue a ac odio. Suspendisse potenti. Aenean sollicitudin nisl tincidunt, iaculis urna sed, dignissim dui. Sed id hendrerit neque. Mauris at sodales velit. Pellentesque porta et justo vel vehicula. Vivamus viverra libero mollis lobortis tempor. Nullam pulvinar at justo quis imperdiet. Aliquam sed aliquet tortor. Sed convallis ex posuere ligula ullamcorper, sit amet malesuada lacus lacinia. Proin viverra viverra sapien, a interdum lacus bibendum eget.</span>
+					<span class='fb-tag fb-bracket'><</span><span class='fb-tag'>/p</span><span class='fb-tag fb-bracket'>></span>
+				</p>`,
+		htmlDOM:`<h3 id="textSpacing-demo" class="demo-tags text-textTransform-demo">Sed sit amet nunc sit amet nulla auctor congue a ac odio. Suspendisse potenti. Aenean sollicitudin nisl tincidunt, iaculis urna sed, dignissim dui. Sed id hendrerit neque. Mauris at sodales velit. Pellentesque porta et justo vel vehicula. Vivamus viverra libero mollis lobortis tempor. Nullam pulvinar at justo quis imperdiet. Aliquam sed aliquet tortor. Sed convallis ex posuere ligula ullamcorper, sit amet malesuada lacus lacinia. Proin viverra viverra sapien, a interdum lacus bibendum eget.</h3>`
+		
+	},
+	
 	
 ]
